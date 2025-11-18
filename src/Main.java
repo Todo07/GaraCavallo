@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.swing.JFileChooser;
 
 public class Main {
     static String primo = "";
@@ -13,11 +14,24 @@ public class Main {
         Scanner input = new Scanner(System.in);
         Random r = new Random();
 
-        try {
-            pw = new PrintWriter(new FileWriter("risultati_gara.txt"));
-        } catch (IOException e) {
-            e.printStackTrace();
+        // --- FILE CHOOSER ---
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("Seleziona il file dove salvare i risultati");
+
+        int result = chooser.showSaveDialog(null);
+
+        if (result == JFileChooser.APPROVE_OPTION) {
+            try {
+                pw = new PrintWriter(new FileWriter(chooser.getSelectedFile(), true));
+            } catch (IOException e) {
+                e.printStackTrace();
+                return;
+            }
+        } else {
+            System.out.println("Nessun file selezionato. Programma terminato.");
+            return;
         }
+        // ---------------------
 
         System.out.print("Inserisci la lunghezza della gara: ");
         int lunghezza = Integer.parseInt(input.nextLine());

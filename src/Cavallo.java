@@ -6,7 +6,7 @@ public class Cavallo extends Thread {
     private int lentezza;
     private final int PASSO = 5;
     private boolean azzoppato = false;
-
+/**classe cavallo*/
     public Cavallo(String nome, int lentezza, int lunghezza) {
         this.nome = nome;
         this.lentezza = lentezza;
