@@ -14,7 +14,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
         Random r = new Random();
 
-        // --- FILE CHOOSER ---
+
         JFileChooser chooser = new JFileChooser();
         chooser.setDialogTitle("Seleziona il file dove salvare i risultati");
 
@@ -31,7 +31,7 @@ public class Main {
             System.out.println("Nessun file selezionato. Programma terminato.");
             return;
         }
-        // ---------------------
+
 
         System.out.print("Inserisci la lunghezza della gara: ");
         int lunghezza = Integer.parseInt(input.nextLine());
